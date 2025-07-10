@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://c70ewd4ycsg61"]
+
+[ext_resource type="Texture2D" uid="uid://tsv5pu1oiq3b" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_dead.tres" id="1_md484"]
+[ext_resource type="Texture2D" uid="uid://ddta4q64ioh78" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_swim1.tres" id="2_ipns3"]
+[ext_resource type="Texture2D" uid="uid://rj4pa5aosdga" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_swim2.tres" id="3_8qclf"]
+[ext_resource type="Texture2D" uid="uid://2nq5jelecp1" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_switch1.tres" id="4_w8i8w"]
+[ext_resource type="Texture2D" uid="uid://du7qpa40dmwu6" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_switch2.tres" id="5_otmr2"]
+[ext_resource type="Texture2D" uid="uid://cw406lc6a5d42" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_up2.tres" id="6_wtq4b"]
+[ext_resource type="Texture2D" uid="uid://skr4ax5jcm3n" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_walk2.tres" id="7_j0cyh"]
+[ext_resource type="Texture2D" uid="uid://dshbi07wiaylw" path="res://assets/Abstract Platformer/Spritesheet/spritesheet_players/playerBlue_walk3.tres" id="8_g0wcc"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s1ycm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_md484")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_ipns3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8qclf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w8i8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_otmr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_wtq4b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_j0cyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_g0wcc")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="blue enemy" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_s1ycm")
+animation = &"death"
+autoplay = "idle"
+frame_progress = 0.0412907

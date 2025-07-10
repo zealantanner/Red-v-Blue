@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://m4k1rbojyhog"]
+
+[ext_resource type="Script" uid="uid://ceenx00iejjp8" path="res://scenes/placeable_bomb.gd" id="1_2cvkb"]
+[ext_resource type="Texture2D" uid="uid://cacjsp1deumna" path="res://assets/Cursor Pack/PNG/Basic/Default/tool_bomb.png" id="1_pbsm1"]
+
+[sub_resource type="GDScript" id="GDScript_o1mb1"]
+script/source = "extends RayCast2D
+
+var PastMouseLocation: Vector2
+var CurrentMouseLocation: Vector2
+
+var DerivatedPastMouseSpeed: Vector2
+var DerivatedCurrentMouseSpeed: Vector2
+
+var DerivatedMouseAcceleration: Vector2
+var global_postion: Vector2
+
+const SPEED:int = 50
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	PastMouseLocation = get_global_mouse_position()
+	CurrentMouseLocation = get_global_mouse_position()
+	DerivatedPastMouseSpeed = Vector2(0, 0)
+	DerivatedCurrentMouseSpeed = Vector2(0, 0)
+	DerivatedMouseAcceleration = Vector2(0, 0)
+ # Replace with function body.
+
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	PastMouseLocation = CurrentMouseLocation
+	CurrentMouseLocation = get_global_mouse_position()
+	#position = get_global_mouse_position()
+	
+	self.position = CurrentMouseLocation
+	
+	if is_colliding(): print(\"collide\")
+	if Input.is_key_pressed(KEY_0):
+		print(self.position)
+	if Input.is_key_pressed(KEY_1):
+		print(\"interpolation on\")
+		self.position = global_postion.lerp(CurrentMouseLocation, SPEED*delta)
+	else:
+		print(\"interpolation off\")
+		self.position = CurrentMouseLocation
+"
+
+[node name="Placeable bomb" type="AnimatableBody2D"]
+script = ExtResource("1_2cvkb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_pbsm1")
+offset = Vector2(3, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+z_index = 5
+exclude_parent = false
+script = SubResource("GDScript_o1mb1")

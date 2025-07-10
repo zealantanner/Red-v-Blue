@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8nbbp12rffi"]
+
+[ext_resource type="PackedScene" uid="uid://m4k1rbojyhog" path="res://scenes/placeable_bomb.tscn" id="1_uwrxv"]
+[ext_resource type="PackedScene" uid="uid://cngl74j0mlx4j" path="res://scenes/tree.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bu3boqljria2u" path="res://scenes/mouse.tscn" id="3_lnu2h"]
+
+[node name="Game" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="Placeable bomb" parent="." instance=ExtResource("1_uwrxv")]
+top_level = true
+position = Vector2(124, 88)
+
+[node name="Tree" parent="." instance=ExtResource("2_yqjtg")]
+position = Vector2(130, 135)
+
+[node name="Mouse" parent="." instance=ExtResource("3_lnu2h")]

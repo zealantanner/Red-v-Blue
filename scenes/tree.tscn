@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cngl74j0mlx4j"]
+
+[ext_resource type="Texture2D" uid="uid://cwpsj2wbm27l5" path="res://assets/Map Pack/PNG/mapTile_115.png" id="1_avsvi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vplca"]
+
+[node name="Tree" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_avsvi")
+offset = Vector2(0, -23)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vplca")
